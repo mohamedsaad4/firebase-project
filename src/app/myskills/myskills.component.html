@@ -1,0 +1,64 @@
+<div class="uk-child-width-1-2@m uk-padding" uk-grid *ngFor="let item of itemArray">
+    <div>
+        <div class="uk-card uk-card-default">
+            <div class="uk-card-media-top">
+                <img src="assets/download.jpg" alt="">
+            </div>
+            <div class="uk-card-body">
+                <h3 class="uk-card-title">{{item.skill}}</h3>
+                <p> {{ item.name }} </p>
+                <p class="phone"> {{ item.phone }} </p>
+                <p class="price"> {{ item.price }} </p>
+                <p> {{ item.comment }} </p>
+
+                <button class="uk-button uk-button-primary uk-margin-small-right" type="button" uk-toggle="target: #modal-example" (click)="editForm(item.$key)">Edit</button>
+                <button class="uk-button uk-button-danger uk-button-small"  (click)="onDelete(item.$key)">Delete</button>
+
+                <!-- This is the modal -->
+<div id="modal-example" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+        
+        <form>
+            <fieldset class="uk-fieldset">
+        
+                <legend class="uk-legend">Add skill</legend>
+        
+                <div class="uk-margin">
+                    <input class="uk-input" type="text" placeholder="Name" name="name" [(ngModel)]="data.name">
+                </div>
+    
+                <div class="uk-margin">
+                    <input class="uk-input" type="text" placeholder="Phone" name="phone" [(ngModel)]="data.phone">
+                </div>
+    
+                <div class="uk-margin">
+                    <input class="uk-input" type="text" placeholder="skill" name="skill" [(ngModel)]="data.skill">
+                </div>
+    
+                <div class="uk-margin">
+                    <input class="uk-input" type="text" placeholder="Price" name="price" [(ngModel)]="data.price">
+                </div>
+        
+                <div class="uk-margin">
+                    <textarea class="uk-textarea" rows="5" placeholder="Comments" name="comment" [(ngModel)]="data.comment"></textarea>
+                </div>
+        
+            </fieldset>
+        </form>
+
+
+        <p class="uk-text-right">
+            <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+            <button class="uk-button uk-button-primary uk-modal-close" type="button" (click)="onEdit(item.$key)">Save</button>
+        </p>
+    </div>
+</div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+
+<!-- This is a button toggling the modal -->
+

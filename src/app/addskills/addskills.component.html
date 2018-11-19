@@ -1,0 +1,39 @@
+<div class="uk-padding">
+
+    <div class="uk-card uk-card-default uk-card-body">
+    
+
+    <form>
+        <fieldset class="uk-fieldset">
+    
+            <legend class="uk-legend">Add skill</legend>
+    
+            <div class="uk-margin">
+                <input class="uk-input" type="text" placeholder="Name" name="name" [(ngModel)]="data.name">
+            </div>
+
+            <div class="uk-margin">
+                <input class="uk-input" type="text" placeholder="Phone" name="phone" [(ngModel)]="data.phone">
+            </div>
+
+            <div class="uk-margin">
+                <input class="uk-input" type="text" placeholder="skill" name="skill" [(ngModel)]="data.skill">
+            </div>
+
+            <div class="uk-margin">
+                <input class="uk-input" type="text" placeholder="Price" name="price" [(ngModel)]="data.price">
+            </div>
+    
+            <div class="uk-margin">
+                <textarea class="uk-textarea" rows="5" placeholder="Comments" name="comment" [(ngModel)]="data.comment"></textarea>
+            </div>
+    
+            <div class="uk-margin">
+                <button type="button" class="uk-button uk-button-primary" (click)="insertSkill(); navToMyskills()">Add</button>
+            </div>
+    
+        </fieldset>
+    </form>
+</div>
+
+</div>
