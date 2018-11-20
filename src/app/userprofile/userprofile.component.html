@@ -1,0 +1,56 @@
+<div class="uk-card uk-card-default">
+  <div class="uk-card-header">
+      <div class="uk-grid-small uk-flex-middle" uk-grid>
+          <div class="uk-width-auto">
+              <img class="uk-border-circle" width="40" height="40" src="../../assets/download.jpg">
+          </div>
+          <div class="uk-width-expand">
+              <h3 class="uk-card-title uk-margin-remove-bottom">{{data.name}}</h3>
+              <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">April 01, 2016</time></p>
+          </div>
+      </div>
+  </div>
+  <div class="uk-card-body">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+  </div>
+  <div class="uk-card-footer">
+      <a href="#" class="uk-button uk-button-text" uk-toggle="target: #modal-example" (click)="editForm(item.$key)">Read more</a>
+      <td>
+
+
+    <div id="modal-example" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body">
+            <fieldset class="uk-fieldset">
+        
+                <legend class="uk-legend">Add skill</legend>
+        
+                <div class="uk-margin">
+                    <input class="uk-input" type="text" placeholder="Name" name="name" [(ngModel)]="data.name">
+                </div>
+    
+                <div class="uk-margin">
+                    <input class="uk-input" type="text" placeholder="Phone" name="phone" [(ngModel)]="data.phone">
+                </div>
+    
+                <div class="uk-margin">
+                    <input class="uk-input" type="text" placeholder="skill" name="skill" [(ngModel)]="data.skill">
+                </div>
+    
+                <div class="uk-margin">
+                    <input class="uk-input" type="text" placeholder="Price" name="price" [(ngModel)]="data.price">
+                </div>
+        
+                <div class="uk-margin">
+                    <textarea class="uk-textarea" rows="5" placeholder="Comments" name="comment" [(ngModel)]="data.comment"></textarea>
+                </div>
+        
+            </fieldset>
+            <p class="uk-text-right">
+                <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                <button class="uk-button uk-button-primary uk-modal-close" type="button" (click)="onEdit(item.$key)">Save</button>
+            </p>
+        </div>
+    </div>
+  </div>
+</div>
+

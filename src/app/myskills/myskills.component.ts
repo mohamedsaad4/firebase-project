@@ -97,4 +97,4 @@ export class listItemClass {
   skill: string;
   price: string;
   comment: string;
-}
+} 

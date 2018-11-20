@@ -20,13 +20,13 @@ export class DetailsComponent implements OnInit {
     phone: '',
     skill: '',
     price: '',
-    comment: ''
+    comment: '',
+    email: ''
   };
 
   constructor(private route: ActivatedRoute, public db: AngularFireDatabase) {
     this.route.params.subscribe(params => { //params: will be an object: {id: "-Lskjdhfuehksjdnfsdf"}
-
-
+      this.id = params;
     })
 
     this.itemList = db.list('skills');
@@ -35,7 +35,16 @@ export class DetailsComponent implements OnInit {
       actions.forEach(action => {
         let y = action.payload.toJSON();
         y['$key'] = action.key;
-        this.itemArray.push(y as listItemClass);
+        
+        if(action.key === this.id['id']) {
+          this.itemArray.push(y as listItemClass);
+          this.data.name = this.itemArray[0]['name'];
+          this.data.phone = this.itemArray[0]['phone'];
+          this.data.skill = this.itemArray[0]['skill'];
+          this.data.price = this.itemArray[0]['price'];
+          this.data.comment = this.itemArray[0]['comment'];
+          this.data.email = this.itemArray[0]['email'];
+        }
       });
 
       console.log(this.itemArray);
@@ -55,4 +64,5 @@ export class listItemClass {
   skill: string;
   price: string;
   comment: string;
+  email: string;
 }

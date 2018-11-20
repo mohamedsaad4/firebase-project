@@ -18,6 +18,7 @@ import { RegisterComponent } from './register/register.component';
 import { MyskillsComponent } from './myskills/myskills.component';
 import { AllskillsComponent } from './allskills/allskills.component';
 import { DetailsComponent } from './details/details.component';
+import { UserprofileComponent } from './userprofile/userprofile.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { DetailsComponent } from './details/details.component';
     RegisterComponent,
     MyskillsComponent,
     AllskillsComponent,
-    DetailsComponent
+    DetailsComponent,
+    UserprofileComponent
   ],
   imports: [
     BrowserModule,
