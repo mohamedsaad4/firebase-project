@@ -1,3 +1,4 @@
+import { AngularFireAuth } from '@angular/fire/auth';
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { Observable } from 'rxjs';
@@ -24,11 +25,25 @@ export class AddskillsComponent implements OnInit {
   //item: Observable<any>;
   itemList: AngularFireList<any>
 
-  constructor(public db: AngularFireDatabase, public router: Router) {
+  email:string;
+
+  uid: any;
+
+  constructor(public db: AngularFireDatabase, public router: Router, private fire: AngularFireAuth) {
     this.itemList = db.list('skills')
    }
 
   ngOnInit() {
+      let user = this.fire.auth.currentUser.email || localStorage.getItem('email');
+      this.email = user;
+
+      this.uid = this.fire.auth.currentUser.email || localStorage.getItem('uid');
+      console.log(user);
+      this.fire.authState.subscribe(auth => {
+        if (auth) {
+          this.uid =auth.uid;
+        }
+      });
   }
 
   insertSkill() {
@@ -37,9 +52,11 @@ export class AddskillsComponent implements OnInit {
     this.itemList.push({
       name: this.data.name,
       phone: this.data.phone,
-      skill: this.data.phone,
+      skill: this.data.skill,
       price: this.data.price,
-      comment: this.data.comment
+      comment: this.data.comment,
+      email: this.email,
+      uid: this.uid
     });
 
   }

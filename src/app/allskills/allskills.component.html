@@ -1,14 +1,20 @@
-<div class="uk-child-width-1-2@m" uk-grid>
-    <div>
-        <div class="uk-card uk-card-default">
-            <div class="uk-card-media-top">
-                <img src="assets/download.jpg" alt="">
-            </div>
-            <div class="uk-card-body">
-                <h3 class="uk-card-title">Media Top</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-            </div>
-        </div>
-    </div>
-    
+<div class="uk-padding">
+    <table class="uk-table uk-table-striped">
+        <thead>
+            <tr>
+                <th>$key</th>
+                <th>Name</th>
+
+                <th>Skill</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of itemArray">
+                <td>{{item.$key}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.skill}}</td>
+                <td> <button class="uk-button uk-button-primary uk-button-small" (click)="moreInfo(item.$key)">More details</button></td>
+            </tr>
+        </tbody>
+    </table>
 </div>

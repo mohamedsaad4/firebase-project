@@ -1,3 +1,4 @@
+import { DetailsComponent } from './details/details.component';
 import { AllskillsComponent } from './allskills/allskills.component';
 import { MyskillsComponent } from './myskills/myskills.component';
 import { RegisterComponent } from './register/register.component';
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'add', component: AddskillsComponent },
   { path: 'myskills', component: MyskillsComponent },
   { path: 'skills', component: AllskillsComponent },
+  { path: 'details/:id', component: DetailsComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

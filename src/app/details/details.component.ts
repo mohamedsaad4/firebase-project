@@ -1,16 +1,17 @@
-import { Router } from '@angular/router';
+import { AngularFireList, AngularFireDatabase } from '@angular/fire/database';
 import { Component, OnInit } from '@angular/core';
-import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
-import { Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-allskills',
-  templateUrl: './allskills.component.html',
-  styleUrls: ['./allskills.component.css']
+  selector: 'app-details',
+  templateUrl: './details.component.html',
+  styleUrls: ['./details.component.css']
 })
-export class AllskillsComponent implements OnInit {
+export class DetailsComponent implements OnInit {
 
-  itemList: AngularFireList<any>
+  id: any;
+
+  itemList: AngularFireList<any>;
 
   itemArray = [];
 
@@ -22,7 +23,12 @@ export class AllskillsComponent implements OnInit {
     comment: ''
   };
 
-  constructor(public db: AngularFireDatabase, private router: Router) {
+  constructor(private route: ActivatedRoute, public db: AngularFireDatabase) {
+    this.route.params.subscribe(params => { //params: will be an object: {id: "-Lskjdhfuehksjdnfsdf"}
+
+
+    })
+
     this.itemList = db.list('skills');
 
     this.itemList.snapshotChanges().subscribe(actions => {
@@ -32,18 +38,12 @@ export class AllskillsComponent implements OnInit {
         this.itemArray.push(y as listItemClass);
       });
 
+      console.log(this.itemArray);
     });
    }
 
   ngOnInit() {
   }
-
-
-  moreInfo($key) {
-    this.router.navigate(['details/' + $key]);
-  }
-
- 
 
 }
 

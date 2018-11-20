@@ -17,6 +17,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { MyskillsComponent } from './myskills/myskills.component';
 import { AllskillsComponent } from './allskills/allskills.component';
+import { DetailsComponent } from './details/details.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AllskillsComponent } from './allskills/allskills.component';
     LoginComponent,
     RegisterComponent,
     MyskillsComponent,
-    AllskillsComponent
+    AllskillsComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
